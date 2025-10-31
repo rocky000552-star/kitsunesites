@@ -1,66 +1,49 @@
 {
-  "_from": "caniuse-lite@^1.0.30001579",
-  "_id": "caniuse-lite@1.0.30001751",
+  "_from": "client-only@0.0.1",
+  "_id": "client-only@0.0.1",
   "_inBundle": false,
-  "_integrity": "sha512-A0QJhug0Ly64Ii3eIqHu5X51ebln3k4yTUkY1j8drqpWHVreg/VLijN48cZ1bYPiqOQuqpkIKnzr/Ul8V+p6Cw==",
-  "_location": "/caniuse-lite",
+  "_integrity": "sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==",
+  "_location": "/client-only",
   "_phantomChildren": {},
   "_requested": {
-    "type": "range",
+    "type": "version",
     "registry": true,
-    "raw": "caniuse-lite@^1.0.30001579",
-    "name": "caniuse-lite",
-    "escapedName": "caniuse-lite",
-    "rawSpec": "^1.0.30001579",
+    "raw": "client-only@0.0.1",
+    "name": "client-only",
+    "escapedName": "client-only",
+    "rawSpec": "0.0.1",
     "saveSpec": null,
-    "fetchSpec": "^1.0.30001579"
+    "fetchSpec": "0.0.1"
   },
   "_requiredBy": [
-    "/next"
+    "/styled-jsx"
   ],
-  "_resolved": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001751.tgz",
-  "_shasum": "dacd5d9f4baeea841641640139d2b2a4df4226ad",
-  "_spec": "caniuse-lite@^1.0.30001579",
-  "_where": "/home/zoroxtur/nodevenv/kitsune/12/lib/node_modules/next",
-  "author": {
-    "name": "Ben Briggs",
-    "email": "beneb.info@gmail.com",
-    "url": "http://beneb.info"
-  },
+  "_resolved": "https://registry.npmjs.org/client-only/-/client-only-0.0.1.tgz",
+  "_shasum": "38bba5d403c41ab150bff64a95c85013cf73bca1",
+  "_spec": "client-only@0.0.1",
+  "_where": "/home/zoroxtur/nodevenv/kitsune/12/lib/node_modules/styled-jsx",
   "bugs": {
-    "url": "https://github.com/browserslist/caniuse-lite/issues"
+    "url": "https://github.com/facebook/react/issues"
   },
   "bundleDependencies": false,
   "deprecated": false,
-  "description": "A smaller version of caniuse-db, with only the essentials!",
-  "files": [
-    "data",
-    "dist"
-  ],
-  "funding": [
-    {
-      "type": "opencollective",
-      "url": "https://opencollective.com/browserslist"
-    },
-    {
-      "type": "tidelift",
-      "url": "https://tidelift.com/funding/github/npm/caniuse-lite"
-    },
-    {
-      "type": "github",
-      "url": "https://github.com/sponsors/ai"
+  "description": "This is a marker package to indicate that a module can only be used in Client Components.",
+  "exports": {
+    ".": {
+      "react-server": "./error.js",
+      "default": "./index.js"
     }
-  ],
-  "homepage": "https://github.com/browserslist/caniuse-lite#readme",
-  "keywords": [
-    "support"
-  ],
-  "license": "CC-BY-4.0",
-  "main": "dist/unpacker/index.js",
-  "name": "caniuse-lite",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/browserslist/caniuse-lite.git"
   },
-  "version": "1.0.30001751"
+  "files": [
+    "index.js",
+    "error.js"
+  ],
+  "homepage": "https://reactjs.org/",
+  "keywords": [
+    "react"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "client-only",
+  "version": "0.0.1"
 }
