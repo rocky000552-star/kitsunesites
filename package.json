@@ -1,93 +1,66 @@
 {
-  "_from": "@supabase/storage-js@2.77.0",
-  "_id": "@supabase/storage-js@2.77.0",
+  "_from": "caniuse-lite@^1.0.30001579",
+  "_id": "caniuse-lite@1.0.30001751",
   "_inBundle": false,
-  "_integrity": "sha512-4+OpVA4U0C4HM1QuINlgjqFxnRsmqPnuurTDN4m6nRanafuqQQ/UtMjdUU57iygBo70IGBlBefZ8gGNWzD1sLg==",
-  "_location": "/@supabase/storage-js",
+  "_integrity": "sha512-A0QJhug0Ly64Ii3eIqHu5X51ebln3k4yTUkY1j8drqpWHVreg/VLijN48cZ1bYPiqOQuqpkIKnzr/Ul8V+p6Cw==",
+  "_location": "/caniuse-lite",
   "_phantomChildren": {},
   "_requested": {
-    "type": "version",
+    "type": "range",
     "registry": true,
-    "raw": "@supabase/storage-js@2.77.0",
-    "name": "@supabase/storage-js",
-    "escapedName": "@supabase%2fstorage-js",
-    "scope": "@supabase",
-    "rawSpec": "2.77.0",
+    "raw": "caniuse-lite@^1.0.30001579",
+    "name": "caniuse-lite",
+    "escapedName": "caniuse-lite",
+    "rawSpec": "^1.0.30001579",
     "saveSpec": null,
-    "fetchSpec": "2.77.0"
+    "fetchSpec": "^1.0.30001579"
   },
   "_requiredBy": [
-    "/@supabase/supabase-js"
+    "/next"
   ],
-  "_resolved": "https://registry.npmjs.org/@supabase/storage-js/-/storage-js-2.77.0.tgz",
-  "_shasum": "b017a18d936588ace598d903ecc315ab3c78099b",
-  "_spec": "@supabase/storage-js@2.77.0",
-  "_where": "/home/zoroxtur/nodevenv/kitsune/12/lib/node_modules/@supabase/supabase-js",
+  "_resolved": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001751.tgz",
+  "_shasum": "dacd5d9f4baeea841641640139d2b2a4df4226ad",
+  "_spec": "caniuse-lite@^1.0.30001579",
+  "_where": "/home/zoroxtur/nodevenv/kitsune/12/lib/node_modules/next",
   "author": {
-    "name": "Supabase"
+    "name": "Ben Briggs",
+    "email": "beneb.info@gmail.com",
+    "url": "http://beneb.info"
   },
   "bugs": {
-    "url": "https://github.com/supabase/supabase-js/issues"
+    "url": "https://github.com/browserslist/caniuse-lite/issues"
   },
   "bundleDependencies": false,
-  "dependencies": {
-    "@supabase/node-fetch": "2.6.15",
-    "tslib": "2.8.1"
-  },
   "deprecated": false,
-  "description": "Isomorphic storage client for Supabase.",
-  "devDependencies": {
-    "form-data": "^4.0.0",
-    "husky": "^4.3.0",
-    "jest-environment-jsdom": "^29.5.0",
-    "pretty-quick": "^3.1.0",
-    "ts-jest": "^29.0.0",
-    "ts-loader": "^9.4.2",
-    "webpack": "^5.75.0",
-    "webpack-cli": "^5.0.1"
-  },
+  "description": "A smaller version of caniuse-db, with only the essentials!",
   "files": [
-    "dist",
-    "src"
+    "data",
+    "dist"
   ],
-  "homepage": "https://github.com/supabase/supabase-js/tree/master/packages/core/storage-js",
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
+  "funding": [
+    {
+      "type": "opencollective",
+      "url": "https://opencollective.com/browserslist"
+    },
+    {
+      "type": "tidelift",
+      "url": "https://tidelift.com/funding/github/npm/caniuse-lite"
+    },
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/ai"
     }
-  },
-  "jsdelivr": "dist/umd/supabase.js",
-  "keywords": [
-    "javascript",
-    "typescript",
-    "supabase"
   ],
-  "license": "MIT",
-  "main": "dist/main/index.js",
-  "module": "dist/module/index.js",
-  "name": "@supabase/storage-js",
-  "publishConfig": {
-    "access": "public"
-  },
+  "homepage": "https://github.com/browserslist/caniuse-lite#readme",
+  "keywords": [
+    "support"
+  ],
+  "license": "CC-BY-4.0",
+  "main": "dist/unpacker/index.js",
+  "name": "caniuse-lite",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/supabase/supabase-js.git",
-    "directory": "packages/core/storage-js"
+    "url": "git+https://github.com/browserslist/caniuse-lite.git"
   },
-  "scripts": {
-    "build": "npm run build:main && npm run build:module && npm run build:umd",
-    "build:main": "tsc -p tsconfig.json",
-    "build:module": "tsc -p tsconfig.module.json",
-    "build:umd": "webpack",
-    "docs": "typedoc --entryPoints src/index.ts --out docs/v2 --entryPoints src/packages/* --excludePrivate --excludeProtected",
-    "docs:json": "typedoc --json docs/v2/spec.json --entryPoints src/index.ts --entryPoints src/packages/* --excludePrivate --excludeExternals --excludeProtected",
-    "test:clean": "cd infra && docker compose down --remove-orphans",
-    "test:infra": "cd infra && docker compose down && docker compose up -d --build && sleep 10",
-    "test:storage": "npx nx test:clean storage-js && npx nx test:infra storage-js && npx nx test:suite storage-js && npx nx test:clean storage-js",
-    "test:suite": "jest --runInBand --coverage"
-  },
-  "sideEffects": false,
-  "types": "dist/module/index.d.ts",
-  "unpkg": "dist/umd/supabase.js",
-  "version": "2.77.0"
+  "version": "1.0.30001751"
 }
