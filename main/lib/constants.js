@@ -1,46 +1,31 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CONNECTION_STATE = exports.TRANSPORTS = exports.CHANNEL_EVENTS = exports.CHANNEL_STATES = exports.SOCKET_STATES = exports.MAX_PUSH_BUFFER_SIZE = exports.WS_CLOSE_NORMAL = exports.DEFAULT_TIMEOUT = exports.VERSION = exports.VSN = exports.DEFAULT_VERSION = void 0;
+exports.JWKS_TTL = exports.BASE64URL_REGEX = exports.API_VERSIONS = exports.API_VERSION_HEADER_NAME = exports.NETWORK_FAILURE = exports.DEFAULT_HEADERS = exports.AUDIENCE = exports.STORAGE_KEY = exports.GOTRUE_URL = exports.EXPIRY_MARGIN_MS = exports.AUTO_REFRESH_TICK_THRESHOLD = exports.AUTO_REFRESH_TICK_DURATION_MS = void 0;
 const version_1 = require("./version");
-exports.DEFAULT_VERSION = `realtime-js/${version_1.version}`;
-exports.VSN = '1.0.0';
-exports.VERSION = version_1.version;
-exports.DEFAULT_TIMEOUT = 10000;
-exports.WS_CLOSE_NORMAL = 1000;
-exports.MAX_PUSH_BUFFER_SIZE = 100;
-var SOCKET_STATES;
-(function (SOCKET_STATES) {
-    SOCKET_STATES[SOCKET_STATES["connecting"] = 0] = "connecting";
-    SOCKET_STATES[SOCKET_STATES["open"] = 1] = "open";
-    SOCKET_STATES[SOCKET_STATES["closing"] = 2] = "closing";
-    SOCKET_STATES[SOCKET_STATES["closed"] = 3] = "closed";
-})(SOCKET_STATES || (exports.SOCKET_STATES = SOCKET_STATES = {}));
-var CHANNEL_STATES;
-(function (CHANNEL_STATES) {
-    CHANNEL_STATES["closed"] = "closed";
-    CHANNEL_STATES["errored"] = "errored";
-    CHANNEL_STATES["joined"] = "joined";
-    CHANNEL_STATES["joining"] = "joining";
-    CHANNEL_STATES["leaving"] = "leaving";
-})(CHANNEL_STATES || (exports.CHANNEL_STATES = CHANNEL_STATES = {}));
-var CHANNEL_EVENTS;
-(function (CHANNEL_EVENTS) {
-    CHANNEL_EVENTS["close"] = "phx_close";
-    CHANNEL_EVENTS["error"] = "phx_error";
-    CHANNEL_EVENTS["join"] = "phx_join";
-    CHANNEL_EVENTS["reply"] = "phx_reply";
-    CHANNEL_EVENTS["leave"] = "phx_leave";
-    CHANNEL_EVENTS["access_token"] = "access_token";
-})(CHANNEL_EVENTS || (exports.CHANNEL_EVENTS = CHANNEL_EVENTS = {}));
-var TRANSPORTS;
-(function (TRANSPORTS) {
-    TRANSPORTS["websocket"] = "websocket";
-})(TRANSPORTS || (exports.TRANSPORTS = TRANSPORTS = {}));
-var CONNECTION_STATE;
-(function (CONNECTION_STATE) {
-    CONNECTION_STATE["Connecting"] = "connecting";
-    CONNECTION_STATE["Open"] = "open";
-    CONNECTION_STATE["Closing"] = "closing";
-    CONNECTION_STATE["Closed"] = "closed";
-})(CONNECTION_STATE || (exports.CONNECTION_STATE = CONNECTION_STATE = {}));
+/** Current session will be checked for refresh at this interval. */
+exports.AUTO_REFRESH_TICK_DURATION_MS = 30 * 1000;
+/**
+ * A token refresh will be attempted this many ticks before the current session expires. */
+exports.AUTO_REFRESH_TICK_THRESHOLD = 3;
+/*
+ * Earliest time before an access token expires that the session should be refreshed.
+ */
+exports.EXPIRY_MARGIN_MS = exports.AUTO_REFRESH_TICK_THRESHOLD * exports.AUTO_REFRESH_TICK_DURATION_MS;
+exports.GOTRUE_URL = 'http://localhost:9999';
+exports.STORAGE_KEY = 'supabase.auth.token';
+exports.AUDIENCE = '';
+exports.DEFAULT_HEADERS = { 'X-Client-Info': `gotrue-js/${version_1.version}` };
+exports.NETWORK_FAILURE = {
+    MAX_RETRIES: 10,
+    RETRY_INTERVAL: 2, // in deciseconds
+};
+exports.API_VERSION_HEADER_NAME = 'X-Supabase-Api-Version';
+exports.API_VERSIONS = {
+    '2024-01-01': {
+        timestamp: Date.parse('2024-01-01T00:00:00.0Z'),
+        name: '2024-01-01',
+    },
+};
+exports.BASE64URL_REGEX = /^([a-z0-9_-]{4})*($|[a-z0-9_-]{3}$|[a-z0-9_-]{2}$)$/i;
+exports.JWKS_TTL = 10 * 60 * 1000; // 10 minutes
 //# sourceMappingURL=constants.js.map

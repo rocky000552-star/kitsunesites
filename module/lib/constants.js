@@ -1,43 +1,28 @@
 import { version } from './version';
-export const DEFAULT_VERSION = `realtime-js/${version}`;
-export const VSN = '1.0.0';
-export const VERSION = version;
-export const DEFAULT_TIMEOUT = 10000;
-export const WS_CLOSE_NORMAL = 1000;
-export const MAX_PUSH_BUFFER_SIZE = 100;
-export var SOCKET_STATES;
-(function (SOCKET_STATES) {
-    SOCKET_STATES[SOCKET_STATES["connecting"] = 0] = "connecting";
-    SOCKET_STATES[SOCKET_STATES["open"] = 1] = "open";
-    SOCKET_STATES[SOCKET_STATES["closing"] = 2] = "closing";
-    SOCKET_STATES[SOCKET_STATES["closed"] = 3] = "closed";
-})(SOCKET_STATES || (SOCKET_STATES = {}));
-export var CHANNEL_STATES;
-(function (CHANNEL_STATES) {
-    CHANNEL_STATES["closed"] = "closed";
-    CHANNEL_STATES["errored"] = "errored";
-    CHANNEL_STATES["joined"] = "joined";
-    CHANNEL_STATES["joining"] = "joining";
-    CHANNEL_STATES["leaving"] = "leaving";
-})(CHANNEL_STATES || (CHANNEL_STATES = {}));
-export var CHANNEL_EVENTS;
-(function (CHANNEL_EVENTS) {
-    CHANNEL_EVENTS["close"] = "phx_close";
-    CHANNEL_EVENTS["error"] = "phx_error";
-    CHANNEL_EVENTS["join"] = "phx_join";
-    CHANNEL_EVENTS["reply"] = "phx_reply";
-    CHANNEL_EVENTS["leave"] = "phx_leave";
-    CHANNEL_EVENTS["access_token"] = "access_token";
-})(CHANNEL_EVENTS || (CHANNEL_EVENTS = {}));
-export var TRANSPORTS;
-(function (TRANSPORTS) {
-    TRANSPORTS["websocket"] = "websocket";
-})(TRANSPORTS || (TRANSPORTS = {}));
-export var CONNECTION_STATE;
-(function (CONNECTION_STATE) {
-    CONNECTION_STATE["Connecting"] = "connecting";
-    CONNECTION_STATE["Open"] = "open";
-    CONNECTION_STATE["Closing"] = "closing";
-    CONNECTION_STATE["Closed"] = "closed";
-})(CONNECTION_STATE || (CONNECTION_STATE = {}));
+/** Current session will be checked for refresh at this interval. */
+export const AUTO_REFRESH_TICK_DURATION_MS = 30 * 1000;
+/**
+ * A token refresh will be attempted this many ticks before the current session expires. */
+export const AUTO_REFRESH_TICK_THRESHOLD = 3;
+/*
+ * Earliest time before an access token expires that the session should be refreshed.
+ */
+export const EXPIRY_MARGIN_MS = AUTO_REFRESH_TICK_THRESHOLD * AUTO_REFRESH_TICK_DURATION_MS;
+export const GOTRUE_URL = 'http://localhost:9999';
+export const STORAGE_KEY = 'supabase.auth.token';
+export const AUDIENCE = '';
+export const DEFAULT_HEADERS = { 'X-Client-Info': `gotrue-js/${version}` };
+export const NETWORK_FAILURE = {
+    MAX_RETRIES: 10,
+    RETRY_INTERVAL: 2, // in deciseconds
+};
+export const API_VERSION_HEADER_NAME = 'X-Supabase-Api-Version';
+export const API_VERSIONS = {
+    '2024-01-01': {
+        timestamp: Date.parse('2024-01-01T00:00:00.0Z'),
+        name: '2024-01-01',
+    },
+};
+export const BASE64URL_REGEX = /^([a-z0-9_-]{4})*($|[a-z0-9_-]{3}$|[a-z0-9_-]{2}$)$/i;
+export const JWKS_TTL = 10 * 60 * 1000; // 10 minutes
 //# sourceMappingURL=constants.js.map
