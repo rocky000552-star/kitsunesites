@@ -1,33 +1,39 @@
 {
-  "_from": "node-fetch@^2.7.0",
-  "_id": "node-fetch@2.7.0",
+  "_from": "@supabase/node-fetch@2.6.15",
+  "_id": "@supabase/node-fetch@2.6.15",
   "_inBundle": false,
-  "_integrity": "sha512-c4FRfUm/dbcWZ7U+1Wq0AwCyFL+3nt2bEw05wfxSz+DWpWsitgmSgYmy2dQdWyKC1694ELPqMs/YzUSNozLt8A==",
-  "_location": "/node-fetch",
+  "_integrity": "sha512-1ibVeYUacxWYi9i0cf5efil6adJ9WRyZBLivgjs+AUpewx1F3xPi7gLgaASI2SmIQxPoCEjAsLAzKPgMJVgOUQ==",
+  "_location": "/@supabase/node-fetch",
   "_phantomChildren": {},
   "_requested": {
-    "type": "range",
+    "type": "version",
     "registry": true,
-    "raw": "node-fetch@^2.7.0",
-    "name": "node-fetch",
-    "escapedName": "node-fetch",
-    "rawSpec": "^2.7.0",
+    "raw": "@supabase/node-fetch@2.6.15",
+    "name": "@supabase/node-fetch",
+    "escapedName": "@supabase%2fnode-fetch",
+    "scope": "@supabase",
+    "rawSpec": "2.6.15",
     "saveSpec": null,
-    "fetchSpec": "^2.7.0"
+    "fetchSpec": "2.6.15"
   },
   "_requiredBy": [
-    "/cross-fetch"
+    "/@supabase/auth-js",
+    "/@supabase/functions-js",
+    "/@supabase/postgrest-js",
+    "/@supabase/realtime-js",
+    "/@supabase/storage-js",
+    "/@supabase/supabase-js"
   ],
-  "_resolved": "https://registry.npmjs.org/node-fetch/-/node-fetch-2.7.0.tgz",
-  "_shasum": "d0f0fa6e3e2dc1d27efcd8ad99d550bda94d187d",
-  "_spec": "node-fetch@^2.7.0",
-  "_where": "/home/zoroxtur/nodevenv/kitsune/12/lib/node_modules/cross-fetch",
+  "_resolved": "https://registry.npmjs.org/@supabase/node-fetch/-/node-fetch-2.6.15.tgz",
+  "_shasum": "731271430e276983191930816303c44159e7226c",
+  "_spec": "@supabase/node-fetch@2.6.15",
+  "_where": "/home/zoroxtur/nodevenv/kitsune/12/lib/node_modules/@supabase/supabase-js",
   "author": {
     "name": "David Frank"
   },
   "browser": "./browser.js",
   "bugs": {
-    "url": "https://github.com/bitinn/node-fetch/issues"
+    "url": "https://github.com/supabase/node-fetch/issues"
   },
   "bundleDependencies": false,
   "dependencies": {
@@ -72,7 +78,7 @@
     "lib/index.es.js",
     "browser.js"
   ],
-  "homepage": "https://github.com/bitinn/node-fetch",
+  "homepage": "https://github.com/supabase/node-fetch",
   "keywords": [
     "fetch",
     "http",
@@ -80,15 +86,9 @@
   ],
   "license": "MIT",
   "main": "lib/index.js",
-  "module": "lib/index.mjs",
-  "name": "node-fetch",
-  "peerDependencies": {
-    "encoding": "^0.1.0"
-  },
-  "peerDependenciesMeta": {
-    "encoding": {
-      "optional": true
-    }
+  "name": "@supabase/node-fetch",
+  "publishConfig": {
+    "access": "public"
   },
   "release": {
     "branches": [
@@ -103,7 +103,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bitinn/node-fetch.git"
+    "url": "git+https://github.com/supabase/node-fetch.git"
   },
   "scripts": {
     "build": "cross-env BABEL_ENV=rollup rollup -c",
@@ -112,5 +112,5 @@
     "report": "cross-env BABEL_ENV=coverage nyc --reporter lcov --reporter text mocha -R spec test/test.js",
     "test": "cross-env BABEL_ENV=test mocha --require babel-register --throw-deprecation test/test.js"
   },
-  "version": "2.7.0"
+  "version": "2.6.15"
 }

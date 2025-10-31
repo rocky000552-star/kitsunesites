@@ -155,9 +155,6 @@ FetchError.prototype.constructor = FetchError;
 FetchError.prototype.name = 'FetchError';
 
 let convert;
-try {
-	convert = require('encoding').convert;
-} catch (e) {}
 
 const INTERNALS = Symbol('Body internals');
 
@@ -438,7 +435,7 @@ function consumeBody() {
  * @return  String
  */
 function convertBody(buffer, headers) {
-	if (typeof convert !== 'function') {
+	{
 		throw new Error('The package `encoding` must be installed to use the textConverted() function');
 	}
 
@@ -1361,6 +1358,10 @@ function getNodeRequestOptions(request) {
 		agent = agent(parsedURL);
 	}
 
+	if (!headers.has('Connection') && !agent) {
+		headers.set('Connection', 'close');
+	}
+
 	// HTTP-network fetch step 4.2
 	// chunked encoding is handled by Node.js
 
@@ -1774,4 +1775,4 @@ fetch.isRedirect = function (code) {
 fetch.Promise = global.Promise;
 
 export default fetch;
-export { Headers, Request, Response, FetchError, AbortError };
+export { Headers, Request, Response, FetchError };
